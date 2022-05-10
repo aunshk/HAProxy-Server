@@ -13,10 +13,9 @@ sudo systemctl stop haproxy
 # configure haproxy.conf file
 cd /etc/haproxy
 sudo mv haproxy.cfg haproxy.cfg.backup
-touch haproxy.conf
 
 # add configuration
-sudo bash -c 'cat <<EOT >> /etc/haproxy/haproxy.conf
+sudo bash -c 'cat <<EOT >> /etc/haproxy/haproxy.cfg
 global
    log /dev/log local0
    log /dev/log local1 notice
@@ -48,9 +47,9 @@ EOT'
 
 
 # test nginx configuration
- haproxy -f /etc/haproxy/haproxy.cfg -c
+sudo haproxy -f /etc/haproxy/haproxy.cfg -c
 
 # start haproxy service 
-sudo systemctl start Haproxy
+sudo systemctl start haproxy
 
 echo "Completed"
