@@ -46,7 +46,7 @@ backend http_back
 EOT'
 
 
-# test nginx configuration
+# test haproxy configuration
 sudo haproxy -f /etc/haproxy/haproxy.cfg -c
 
 # start haproxy service 
